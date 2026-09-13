@@ -60,4 +60,6 @@ The runnable project, game assets, and editor configuration are intentionally ke
 
 ## Media
 
-No gameplay captures were present in the reviewed project directory, so this repository intentionally does not use placeholder screenshots or borrowed media.
+![Biome Epoch gameplay: base structures, party creatures, inventory quick slots, and combat HUD.](Screenshots/gameplay-overview.png)
+
+This in-engine capture shows base structures, deployable creatures, the party panel, quick slots, and combat HUD during a local playtest session.
