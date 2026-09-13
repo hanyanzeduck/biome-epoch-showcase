@@ -1,0 +1,11 @@
+# Showcase repository: code and documentation only.
+.godot/
+.idea/
+.vscode/
+*.tmp
+*.log
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
