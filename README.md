@@ -1,3 +1,5 @@
+<img width="1672" height="941" alt="image" src="https://github.com/user-attachments/assets/b41f22d3-c238-4de4-81e2-ca6ef05a7190" />
+
 # Biome Epoch
 
 Code showcase for **Biome Epoch (群落纪元)**, a Godot 4.7 2.5D survival, building, and creature-collection game prototype. The project pairs 2D gameplay simulation with a separate 3D presentation layer.
