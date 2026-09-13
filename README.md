@@ -58,9 +58,18 @@ flowchart LR
 - Forward Plus renderer
 - Godot Resources (`.tres`) for data-driven content
 
-## Running the Full Project
+## Playtest Build
 
-The runnable project, game assets, and editor configuration are intentionally kept out of this public code showcase. This repository has no external dependencies and is intended for source review.
+A Windows x86_64 playtest build is available on the
+[GitHub Releases page](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/tag/v0.1.0).
+
+Download `fera.zip`, extract it, then run `fera.exe`.
+
+## Source Availability
+
+This public repository is a focused code showcase rather than the complete
+runnable project. Full game assets and editor configuration are intentionally
+not included in the source tree.
 
 ## Media
 
