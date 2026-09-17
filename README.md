@@ -2,7 +2,11 @@
 
 **Biome Epoch (群落纪元)** is a playable Godot 4.7 2.5D survival, building, and creature-collection game prototype.
 
-This repository is a focused code showcase rather than the complete runnable Godot project.
+Biome Epoch is developed with a controlled ChatGPT + Codex workflow.
+
+Requirements, gameplay goals, architecture boundaries, system contracts, and acceptance criteria are defined by the developer. AI tools assist with implementation, code search, review, bug investigation, and regression-test design.
+
+Durable project rules and engineering decisions are kept alongside the code so that changes remain constrained and reviewable.
 
 Explore a procedurally generated world, gather resources, build facilities, manage creatures, customize weapons, and coordinate production and logistics across a persistent base.
 
