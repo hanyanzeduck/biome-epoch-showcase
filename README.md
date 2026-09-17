@@ -16,6 +16,18 @@ Code showcase for **Biome Epoch (群落纪元)**, a Godot 4.7 2.5D survival, bui
 
 Players explore a procedurally generated world, collect resources, build facilities, manage a party and base creatures, and coordinate construction, production, and hauling work. This repository is a deliberately small, review-friendly selection of the original project's implementation code.
 
+## AI-assisted Engineering Workflow
+
+The full Biome Epoch project is developed with a controlled ChatGPT + Codex workflow: requirements and architecture boundaries are set by the developer, while AI assists with implementation, code search, review, bug investigation, and regression-test design. The repository now keeps the durable rules, system contracts, architecture decisions, and repeatable change workflows alongside the code so reviewers can understand how changes are constrained and verified.
+
+### Engineering Docs
+
+- [Agent Rules](AGENTS.md)
+- [System Specifications](specs/README.md)
+- [AI Development Workflow](docs/ai-development.md)
+- [Architecture Decision Records](docs/adr/)
+- [Agent Skills / Workflows](skills/README.md)
+
 ## Playtest Build
 
 **Windows x86_64:** Download [Biome Epoch Playtest v0.1.0](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/fera.zip), extract the ZIP, then run `fera.exe`.
