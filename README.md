@@ -2,6 +2,8 @@
 
 **Biome Epoch (群落纪元)** is a playable Godot 4.7 2.5D survival, building, and creature-collection game prototype.
 
+This repository is a focused code showcase rather than the complete runnable Godot project.
+
 Explore a procedurally generated world, gather resources, build facilities, manage creatures, customize weapons, and coordinate production and logistics across a persistent base.
 
 <img width="1672" height="941" alt="Biome Epoch gameplay" src="https://github.com/user-attachments/assets/b41f22d3-c238-4de4-81e2-ca6ef05a7190" />
