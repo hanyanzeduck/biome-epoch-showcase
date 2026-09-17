@@ -27,7 +27,7 @@ https://github.com/user-attachments/assets/b7942e20-09b6-4312-9294-b540ef1be23e
 
 [**Download Biome Epoch Playtest v0.1.0**](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/fera.zip)
 
-Extract the ZIP and run `fera.exe`.
+Extract the ZIP and run `biome_epoch.exe`.
 
 > This repository is a focused code showcase rather than the complete runnable Godot project.  
 > Use the playtest build above to experience the game.
@@ -100,3 +100,120 @@ Gameplay simulation remains authoritative in 2D world coordinates.
 
 ```text
 Vector2(x, y) → Vector3(x, height, y)
+```
+
+It also provides:
+
+- inverse world-coordinate conversion;
+- screen-to-ground ray projection;
+- camera-relative movement directions;
+- visibility checks.
+
+[`MainSceneComposition`](CodeSamples/scripts/main/main_scene_composition.gd) connects the player, world runtime, building systems, party systems, and visual presenters at the scene boundary.
+
+This prevents individual gameplay systems from implementing their own camera or world-space conversion logic.
+
+---
+
+## Architecture
+
+```mermaid
+flowchart LR
+    Input[Player / AI Input] --> Gameplay[Gameplay Components]
+
+    Gameplay --> Data[Resource-driven Data]
+    Gameplay --> World[World Services]
+
+    World --> Gen[World Generation]
+    World --> Logistics[Claims / Reservations / Hauling]
+    World --> Save[Persistence]
+    World --> Visual[2D → 3D Presentation Bridge]
+```
+
+The core principle is to keep gameplay simulation authoritative while presentation, persistence, generation, and logistics interact through explicit boundaries.
+
+---
+
+## Selected Code
+
+| Area | File | Suggested review point |
+| --- | --- | --- |
+| World generation | [WorldGenPipeline](CodeSamples/scripts/worldgen/generation/worldgen_pipeline.gd) | `generate`, stage timings, layout retries, final spawn |
+| Road generation | [WorldGenRoadNetworkGenerator](CodeSamples/scripts/worldgen/generation/worldgen_road_network_generator.gd) | BFS routing, task contacts, path simplification and smoothing |
+| Logistics AI | [CreatureHaulBehavior](CodeSamples/scripts/creatures/behaviors/creature_haul_behavior.gd) | task acquisition, cargo handling, interruption and recovery |
+| Persistence | [SaveGameService](CodeSamples/scripts/save/save_game_service.gd) | `save_slot`, `load_slot`, temporary writes and backup recovery |
+| Rendering boundary | [WorldVisualBridge](CodeSamples/scripts/visual/world_visual_bridge.gd) | coordinate conversion, camera projection and input direction |
+| Scene composition | [MainSceneComposition](CodeSamples/scripts/main/main_scene_composition.gd) | dependency collection and gameplay/visual binding |
+| Tests | [World generation suite](CodeSamples/tests/suites/world_generation_test_suite.gd) | deterministic generation and world invariants |
+| Tests | [Hauling regression](CodeSamples/tests/haul_architecture_regression.gd) | competing workers, shortages and failure recovery |
+
+---
+
+## Regression Evidence
+
+The public [hauling regression](CodeSamples/tests/haul_architecture_regression.gd) defines **20 scenarios**, including:
+
+- source shortages;
+- destination-capacity shortages;
+- source removal;
+- destination removal;
+- partial delivery;
+- work interruption;
+- unreachable paths;
+- 5 / 10 / 20 competing workers;
+- repeated cleanup cycles.
+
+The [world-generation test suite](CodeSamples/tests/suites/world_generation_test_suite.gd) covers:
+
+- seeded generation;
+- deterministic repeatability;
+- era and biome assignments;
+- spawn safety;
+- terrain-atlas mappings;
+- runtime 3D terrain bindings.
+
+These tests depend on classes, resources, and scenes from the full project and are included here as representative regression code rather than as a standalone executable test suite.
+
+---
+
+## Tech Stack
+
+- **Engine:** Godot 4.7
+- **Language:** GDScript
+- **Renderer:** Forward Plus
+- **Data:** Godot Resources (`.tres`)
+- **Platform:** Windows x86_64 playtest build
+
+---
+
+## Repository Scope
+
+This repository is intentionally a **small, review-friendly code showcase** rather than the complete editor project.
+
+The selected implementation and test files reference additional game classes, Resources, scenes, assets, and collaborators that are intentionally omitted from the public repository.
+
+For reviewers:
+
+- use the [Playtest Build](#playtest-build) to experience the game;
+- use [Selected Code](#selected-code) to jump directly into representative systems;
+- use the technical sections above for implementation context.
+
+The release ZIP contains the playable Windows build, not the project's complete source code.
+
+---
+
+## AI-assisted Engineering Workflow
+
+Biome Epoch is developed with a controlled **ChatGPT + Codex** workflow.
+
+Requirements, gameplay goals, architecture boundaries, system contracts, and acceptance criteria are defined by the developer. AI tools assist with implementation, code search, review, bug investigation, and regression-test design.
+
+Durable project rules and engineering decisions are kept alongside the code so that changes remain constrained and reviewable.
+
+### Engineering Documentation
+
+- [Agent Rules](AGENTS.md)
+- [System Specifications](specs/README.md)
+- [AI Development Workflow](docs/ai-development.md)
+- [Architecture Decision Records](docs/adr/)
+- [Agent Skills / Workflows](skills/README.md)
