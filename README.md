@@ -14,7 +14,9 @@ Explore a procedurally generated world, gather resources, build facilities, mana
 
 Gathering, crafting, building, creature combat, weapon customization, and boss encounters.
 
-https://github.com/user-attachments/assets/b7942e20-09b6-4312-9294-b540ef1be23e
+https://github.com/user-attachments/assets/bf90b6fc-fd41-431f-8a6a-26148e4e18d8
+
+
 
 ## Project Highlights
 
