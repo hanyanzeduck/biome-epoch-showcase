@@ -31,7 +31,7 @@ https://github.com/user-attachments/assets/bf90b6fc-fd41-431f-8a6a-26148e4e18d8
 
 **Windows x86_64**
 
-[**Download Biome Epoch Playtest v0.1.0**](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/biome_epoch.zip)
+[**Download Biome Epoch Playtest v0.1.0**](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/biome-epoch.zip)
 
 Extract the ZIP and run `biome_epoch.exe`.
 
