@@ -8,9 +8,34 @@ The selected implementation and test files reference additional game classes, Re
 
 Explore a procedurally generated world, gather resources, build facilities, manage creatures, customize weapons, and coordinate production and logistics across a persistent base.
 
+## v0.2.0 更新
+
+这次回到群落纪元，旅途中会遇见更有生活气息的人类聚居点，菲菈也有了新的立绘、待机动画与更鲜明的体型。战斗技能加入了各自的动态特效，建筑、地表与人物页面一并焕新。
+
+- 探索八处风格不同的人类聚居点，走进林地村落、集镇与后期城镇。
+- 60 种菲菈更新三朝向待机动画，并调整体型与显示比例。
+- 技能换上对应的动态特效，改善攻击范围与画面表现的对应关系。
+- 加入主线开篇的对话、调查与任务页，以及四时代的遗迹入口。Boss 挑战和后续章节仍在完善。
+- 更新开始菜单、暂停菜单、背包与科技等页面；Tab 改为窗口式界面，打开时世界继续运行。
+- 更新建筑与人物立绘，改善地图加载反馈、转动视角时的遮挡与部分性能问题。
+
+[完整中文更新说明](CHANGELOG.zh-CN.md) · [下载 Windows 试玩版 v0.2.0](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.2.0/biome-epoch-v0.2.0-windows-x86_64.zip)
+
+### 新版界面
+
+![新版开始菜单](Screenshots/v0.2.0/main-menu.png)
+
+![窗口式背包与人物立绘](Screenshots/v0.2.0/inventory.png)
+
+界面预览使用示例物品与数值，不代表开局赠送内容。
+
+以下世界截图与影片来自较早的试玩版本，保留作对照。
+
 <img width="1672" height="941" alt="Biome Epoch gameplay" src="https://github.com/user-attachments/assets/b41f22d3-c238-4de4-81e2-ca6ef05a7190" />
 
 ## Gameplay Showcase
+
+The video below shows an earlier playtest build.
 
 Gathering, crafting, building, creature combat, weapon customization, and boss encounters.
 
@@ -31,9 +56,11 @@ https://github.com/user-attachments/assets/bf90b6fc-fd41-431f-8a6a-26148e4e18d8
 
 **Windows x86_64**
 
-[**Download Biome Epoch Playtest v0.1.0**](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/biome-epoch.zip)
+[**Download Biome Epoch Playtest v0.2.0**](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.2.0/biome-epoch-v0.2.0-windows-x86_64.zip)
 
 Extract the ZIP and run `biome_epoch.exe`.
+
+[Previous playtest v0.1.0](https://github.com/hanyanzeduck/biome-epoch-showcase/releases/download/v0.1.0/biome-epoch.zip)
 
 > This repository is a focused code showcase rather than the complete runnable Godot project.  
 > Use the playtest build above to experience the game.
@@ -150,10 +177,14 @@ The core principle is to keep gameplay simulation authoritative while presentati
 | Persistence | [SaveGameService](CodeSamples/scripts/save/save_game_service.gd) | `save_slot`, `load_slot`, temporary writes and backup recovery |
 | Rendering boundary | [WorldVisualBridge](CodeSamples/scripts/visual/world_visual_bridge.gd) | coordinate conversion, camera projection and input direction |
 | Scene composition | [MainSceneComposition](CodeSamples/scripts/main/main_scene_composition.gd) | dependency collection and gameplay/visual binding |
+| Creature animation | [FeraIdleAnimator](CodeSamples/scripts/visual/fera_idle_animator.gd) | camera-relative facing, fixed pivots and species-specific scale |
+| Loading feedback | [WorldLoadingPanel](CodeSamples/scripts/ui/world_loading_panel.gd) | actual generation progress, an animated companion and bounded asset loading |
 | Tests | [World generation suite](CodeSamples/tests/suites/world_generation_test_suite.gd) | deterministic generation and world invariants |
 | Tests | [Hauling regression](CodeSamples/tests/haul_architecture_regression.gd) | competing workers, shortages and failure recovery |
 
 ---
+
+The animation and loading samples are presentation components from the full game. Their registries, data definitions, scenes and assets are intentionally omitted; the samples are not standalone runnable demos.
 
 ## Regression Evidence
 
